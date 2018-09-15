@@ -4,10 +4,10 @@ from django.apps import AppConfig
 from django.utils.translation import ugettext_lazy as _
 
 
-class PublishersApp(AppConfig):
-    name = 'apps.publishers'
+class ServiceAreaApp(AppConfig):
+    name = 'apps.servicearea'
     test = True
-    verbose_name = _('publishers')
+    verbose_name = _('servicearea')
 
     def ready(self):
-        super(PublishersApp, self).ready()
+        super(ServiceAreaApp, self).ready()
