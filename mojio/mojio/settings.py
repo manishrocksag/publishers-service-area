@@ -154,17 +154,6 @@ if USE_CACHE:
 else:
     USER_AGENTS_CACHE = None
 
-# Rest framework settings #####################################################################
-
-# Remove the browsable API of Rest Framework on Production
-REST_FRAMEWORK = {
-    'DEFAULT_AUTHENTICATION_CLASSES': (
-        'apps.customallauth.authentication.CustomDRFSessionAuthentication',
-        'rest_framework.authentication.BasicAuthentication'
-    ),
-}
-if not DEBUG:
-    REST_FRAMEWORK.update({'DEFAULT_RENDERER_CLASSES': ('rest_framework.renderers.JSONRenderer', )})
 
 # Logging settings #############################################################################
 
