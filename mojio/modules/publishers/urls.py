@@ -9,6 +9,5 @@ urlpatterns = [
     url(r'update', update_publisher, name='update a new publisher'),
     url(r'delete', delete_publisher, name='delete a new publisher'),
     url(r'get', get_publishers, name='get the publisher list'),
-    url(r'^search/', include('haystack.urls')),
 ]
 

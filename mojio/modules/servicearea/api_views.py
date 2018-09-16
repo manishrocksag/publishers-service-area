@@ -3,6 +3,8 @@ import logging
 
 from rest_framework.decorators import api_view
 from django.http import HttpResponseBadRequest, JsonResponse
+from haystack.query import SearchQuerySet
+
 
 from .models import ServiceArea, GeoJSONType_Choices_MAPPING
 from modules.publishers.models import Publisher
@@ -172,4 +174,25 @@ def delete_service_area(request):
         return JsonResponse({"status": "failure", "msg": "service area does not exist"}, safe=False)
 
 
+@api_view(['GET'])
+def search(request):
+    """
+    Description: Makes the given service area inactive.
+    parameters:
+      - name: q
+        type: string
+        required: true
+        location: query
+    """
+    search_query = request.GET.get("q", None)
+    if not search_query:
+        raise JsonResponse({"status": "failure", "msg": "No query params"}, safe=False)
 
+    search_instance = SearchQuerySet().autocomplete(content_auto=search_query)[:5]
+
+    try:
+        search_results = map(lambda x: x.object.coordinates, search_instance)
+        response = {"results": search_results}
+        return JsonResponse(response)
+    except Exception:
+        JsonResponse({"status": "failure", "msg": "an exception occured"}, safe=False)
