@@ -1,0 +1,18 @@
+[Unit]
+Description=gunicorn daemon for moio
+After=network.target
+
+[Service]
+PIDFile=/run/typeset-webapp/typeset-webapp.pid
+EnvironmentFile=-/mojio/default
+User=admin
+WorkingDirectory=/usr/share/mojio/mojio
+ExecStart=/usr/bin/mojio
+ExecReload=/bin/kill -s HUP $MAINPID
+ExecStop=/bin/kill -s TERM $MAINPID
+Restart=always
+RestartSec=3
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target

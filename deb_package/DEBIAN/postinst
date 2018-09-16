@@ -1,0 +1,47 @@
+#!/bin/bash
+
+# This file is executed immediately after installation.
+# Create directories and start services here if required.
+
+case "$1" in
+
+  configure)
+
+    echo "Creating directories as required"
+    if [ ! -d /var/log/mojio/django_logs ]; then
+      mkdir -p /var/log/mojio/django_logs
+    fi
+
+    echo "Creating directories as required"
+    if [ ! -d /var/log/mojio/mojio ]; then
+      mkdir -p /var/log/mojio/mojio
+    fi
+
+    # make the m mojio directory
+    if [ ! -d /etc/mojio ]; then
+      mkdir -p /etc/mojio
+    fi
+
+
+    # nginx conditions for mojio
+    if [ ! -f /etc/nginx/sites-enabled/typeset.webapp ]; then
+      echo "Enabling mojio configurations for nginx"
+      ln -s /etc/nginx/sites-available/mojio /etc/nginx/sites-enabled/mojio
+      
+    echo -n "Restarting nginx....."
+      /etc/init.d/nginx restart
+      echo "Done!"
+    fi
+
+    # reload the daemon and restart the typeset-webapp service
+    systemctl daemon-reload;
+    systemctl stop mojio;
+    systemctl start mojio;
+
+  ;;
+  *)
+    echo "postinst called with unhandled argument $1" >&2
+    exit 1
+  ;;
+
+esac

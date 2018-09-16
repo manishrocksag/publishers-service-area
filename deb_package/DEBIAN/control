@@ -1,0 +1,7 @@
+Package: mojio
+Version: 1
+Section: optional
+Maintainer: Typeset <manishrocksag@gmail.com>
+Architecture: all
+Depends: python, nginx, libmysqlclient-dev, python-dev, python-pip, build-essential, libmemcached-dev, logrotate
+Description: Assignment for mojio team

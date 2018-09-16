@@ -1,0 +1,22 @@
+#!/bin/bash
+
+# This file is executed immediately after uninstallation.
+# Remove directories and system entities if required
+
+case "$1" in
+  upgrade)
+    echo "upgrade: Doing nothing";
+  ;;
+  remove)
+    echo "remove: Doing nothing";
+  ;;
+  purge)
+    echo "Removing user typeset-webapp"
+    userdel 'mojio' || true
+  ;;
+  *)
+    echo "postrm called with unhandled argument $1" >&2
+    exit 1
+  ;;
+
+esac

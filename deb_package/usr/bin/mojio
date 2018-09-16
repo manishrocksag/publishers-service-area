@@ -1,0 +1,16 @@
+#!/bin/bash
+
+LOCATION=${MOJIO_HOME_LOCATION}
+VENV_LOCATION=${LOCATION}/webapp_env
+
+
+# CD to the correct directory
+pushd /usr/share/mojio
+
+# Activate the environment
+source ${VENV_LOCATION}/bin/activate
+
+cd mojio;
+
+# start the application server which can receive client requests via nginx
+exec gunicorn -w 5 --env DJANGO_SETTINGS_MODULE=mojio.settings typeset.wsgi
