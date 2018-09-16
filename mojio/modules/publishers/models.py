@@ -22,6 +22,14 @@ LANGUAGE_CHOICES = (
 CURRENCY_CHOICES = (
     (CurrencyTypes.USD, _("usd")), )
 
+LANGUAGE_CHOICES_MAPPING = {}
+for item in LANGUAGE_CHOICES:
+    LANGUAGE_CHOICES_MAPPING[str(item[1])] = item[0]
+
+CURRENCY_CHOICES_MAPPING = {}
+for item in CURRENCY_CHOICES:
+    CURRENCY_CHOICES_MAPPING[str(item[1])] = item[0]
+
 
 @python_2_unicode_compatible
 class Publisher(models.Model):

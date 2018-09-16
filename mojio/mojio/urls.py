@@ -16,15 +16,12 @@ Including another URLconf
 from django.conf.urls import include, url
 from django.contrib import admin
 
-from rest_framework_swagger.views import get_swagger_view
-
-# Create our schema's view w/ the get_schema_view() helper method. Pass in the proper Renderers for swagger
-schema_view = get_swagger_view(title='APIs Documentation')
+from .schema import SwaggerSchemaView
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^api/publisher/', include('modules.publishers.urls')),
     url(r'^api/servicearea/', include('modules.servicearea.urls')),
-    url(r'^docs', schema_view, name="api docs"),
+    url(r'^docs', SwaggerSchemaView.as_view(), name="api docs"),
 
 ]

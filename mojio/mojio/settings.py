@@ -87,6 +87,17 @@ TEMPLATES = [
 WSGI_APPLICATION = 'mojio.wsgi.application'
 
 
+
+REST_FRAMEWORK = {
+    # Parser classes priority-wise for Swagger
+    'DEFAULT_PARSER_CLASSES': [
+        'rest_framework.parsers.FormParser',
+        'rest_framework.parsers.MultiPartParser',
+        'rest_framework.parsers.JSONParser',
+    ],
+}
+
+
 # Database
 # https://docs.djangoproject.com/en/1.8/ref/settings/#databases
 DATABASES = {

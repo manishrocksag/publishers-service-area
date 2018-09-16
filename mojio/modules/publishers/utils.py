@@ -18,8 +18,8 @@ def get_random_id(length):
     return unicode(get_random_string(length))
 
 
+# get a randomly generated publisher id
 def get_publisher_id():
-
     length = 30
     return get_random_id(length)
 
