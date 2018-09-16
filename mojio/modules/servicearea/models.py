@@ -1,15 +1,12 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
-from django.db import models
+from jsonfield import JSONField
 
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
-from django_mysql.models import JSONField
 from django.utils import timezone
 from django.utils.encoding import python_2_unicode_compatible
-
-from apps.publishers.models import Publisher
 
 
 class GeoJSONType(object):
@@ -34,7 +31,7 @@ class ServiceArea(models.Model):
     """
 
     publisher = models.ForeignKey(
-        Publisher,
+        'publishers.Publisher',
         verbose_name=_('Reference to the publisher table'),
     )
     name = models.CharField(_('name'), max_length=254)

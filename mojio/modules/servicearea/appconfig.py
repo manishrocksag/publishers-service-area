@@ -5,7 +5,7 @@ from django.utils.translation import ugettext_lazy as _
 
 
 class ServiceAreaApp(AppConfig):
-    name = 'apps.servicearea'
+    name = 'modules.servicearea'
     test = True
     verbose_name = _('servicearea')
 
