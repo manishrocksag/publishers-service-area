@@ -23,7 +23,8 @@ schema_view = get_swagger_view(title='APIs Documentation')
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^publisher/', include('apps.publishers.urls')),
+    url(r'^api/publisher/', include('modules.publishers.urls')),
+    url(r'^api/servicearea/', include('modules.servicearea.urls')),
     url(r'^docs', schema_view, name="api docs"),
 
 ]

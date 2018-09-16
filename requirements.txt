@@ -5,10 +5,5 @@ djangorestframework==3.8.2
 django-rest-swagger=2.2.0
 python-memcached==1.58
 MySQL-python==1.2.5
-
-
-# need this for JsonField in django
-django-jsonfield==1.0.1
-
-django-mysql==1.1.0
-
+django-mysql=2.4.1
+django-jsonfield=1.0.1

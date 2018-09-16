@@ -49,7 +49,8 @@ THIRD_PARTY_APPS = [
 ]
 
 PROJECT_APPS = [
-    "apps.publishers",
+    "modules.publishers",
+    "modules.servicearea",
 ]
 
 INSTALLED_APPS = PREREQ_APPS + THIRD_PARTY_APPS + PROJECT_APPS
@@ -95,11 +96,11 @@ DATABASES = {
     },
     'prod': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': os.getenv('TYPESET_WEBAPP_DB_NAME', 'mojio'),
-        'USER': os.getenv('TYPESET_WEBAPP_DB_USER', 'root'),
-        'PASSWORD': os.getenv('TYPESET_WEBAPP_DB_PASSWORD', 'root'),
-        'HOST': os.getenv('TYPESET_WEBAPP_DB_HOST', 'localhost'),
-        'PORT': os.getenv('TYPESET_WEBAPP_DB_PORT', ''),
+        'NAME': os.getenv('MOJIO_DB_NAME', 'mojio'),
+        'USER': os.getenv('MOJIO_WEBAPP_DB_USER', 'root'),
+        'PASSWORD': os.getenv('MOJIO_DB_PASSWORD', 'root'),
+        'HOST': os.getenv('MOJIO_DB_HOST', 'localhost'),
+        'PORT': os.getenv('MOJIO_DB_PORT', ''),
         'OPTIONS': {
             # Tell MySQLdb to connect with 'utf8mb4' character set
             'charset': 'utf8mb4',
