@@ -24,3 +24,7 @@ class PublishersModelsTest(TestCase):
 
         self.assertEqual(self.publisher.is_active, True)
 
+    def test_get_publishers_list(self):
+        publishers_list = Publisher.objects.filter(is_active=True)
+        self.assertEqual(len(publishers_list), 1)
+

@@ -1,0 +1,4 @@
+{{ object.title }}
+    {% for coordinate in coordinates%}
+        {{ coordinate }}
+    {% endfor %}

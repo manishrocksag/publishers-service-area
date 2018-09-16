@@ -46,6 +46,8 @@ THIRD_PARTY_APPS = [
     'rest_framework_swagger',
     # Used to get the JsonField class
     'django_mysql',
+    # for search
+    'haystack',
 ]
 
 PROJECT_APPS = [
@@ -165,6 +167,20 @@ if USE_CACHE:
     USER_AGENTS_CACHE = 'default'
 else:
     USER_AGENTS_CACHE = None
+
+
+HAYSTACK_CONNECTIONS = {
+    'default': {
+        'ENGINE': 'haystack.backends.simple_backend.SimpleEngine',
+    },
+    'prod': {
+            'ENGINE': 'haystack.backends.elasticsearch2_backend.Elasticsearch2SearchEngine',
+            'URL': 'http://127.0.0.1:9200/',
+            'INDEX_NAME': 'haystack',
+        },
+}
+
+HAYSTACK_SIGNAL_PROCESSOR = 'haystack.signals.RealtimeSignalProcessor'
 
 
 # Logging settings #############################################################################
