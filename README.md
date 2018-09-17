@@ -18,7 +18,7 @@ here.
 The basic test cases of modules are written. Extensive test cases have been omitted currently.
 
 To use the application:
-Go to: ```mojio.assignment.io``` and start hitting the apis.
+Go to: ```mojio.assignment.io/docs``` and start hitting the apis.
 
 Currently very basic apis are written and no authentication exists of them. (This is to be a serious miss. This
 will be implemented later.)
@@ -28,8 +28,12 @@ used to test the apis written.
 
 ## Local Setup
 
+- Make the directories for storing logs ```mkdir -p /var/log/mojio/django-logs mkdir -p /var/log/mojio/mojio```
 - Go to the project directory and create virtualenv using the command ```virtualenv --python=`which python2` mojio_env```
 - Install the project requirements using the command ```pip install -r requiremnts.txt```
 - Run the migrations using the command ```python manage.py migrate```
 - Start the server using the command ```python manage.py runserver```
+
+Currently the server in aws can be accessed from ```http://52.34.41.77/docs```. This page can be also used for testing.
+A DNS is being set up.
 

@@ -25,7 +25,7 @@ SECRET_KEY = 'nmbiu(29slcq0-0*=6u^rcku)1a@bm0t2tt0n6t#5u^mb67-y)'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -44,8 +44,6 @@ THIRD_PARTY_APPS = [
     'rest_framework',
     # Placed after rest_api to allow template overriding
     'rest_framework_swagger',
-    # Used to get the JsonField class
-    'django_mysql',
     # for search
     'haystack',
 ]

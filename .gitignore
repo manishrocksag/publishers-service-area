@@ -92,3 +92,5 @@ ENV/
 
 # VSCODE
 .vscode/
+
+mojio_env/
